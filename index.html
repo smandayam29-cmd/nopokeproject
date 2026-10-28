@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoPoke · Shots without the needle</title>
+<meta name="description" content="NoPoke gives vaccines without the needle, using a spring and a jet stream. A student business idea by Shyam Mandayam.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B5F5E'/%3E%3Cg fill='none' stroke-linecap='round' stroke-width='5'%3E%3Ccircle cx='32' cy='32' r='22' stroke='%23FFC93C'/%3E%3Cpath d='M24 40 L38 26' stroke='%23FFC93C'/%3E%3Cpath d='M18 18 L46 46' stroke='%23fff'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0B5F5E; --teal-dark:#083F3E; --yellow:#FFC93C; --coral:#D2462F;
+  --ink:#1B2B34; --cream:#FFF4D6; --mist:#E3F2F1; --grey:#5A6670; --white:#FFFFFF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:'Nunito',Arial,sans-serif;font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:'Fredoka','Arial Rounded MT Bold',Arial,sans-serif;line-height:1.1;margin:0}
+a{color:var(--teal)}a:hover{color:var(--teal-dark)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.label{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal)}
+.label.on-dark{color:var(--yellow)}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:var(--white);border-bottom:2px solid var(--mist)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--teal);font-family:'Fredoka',sans-serif;font-weight:700;font-size:26px}
+.nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{display:inline-block;padding:10px 12px;border-radius:999px;text-decoration:none;font-weight:700;color:var(--ink)}
+.nav ul a:hover{background:var(--mist);color:var(--ink)}
+
+/* hero */
+.hero{background:var(--teal);color:var(--white);position:relative;overflow:hidden}
+.hero .bubble1{position:absolute;right:-140px;top:-160px;width:480px;height:480px;border-radius:50%;background:var(--yellow)}
+.hero .bubble2{position:absolute;right:300px;bottom:-60px;width:140px;height:140px;border-radius:50%;background:var(--cream);opacity:.9}
+.hero .wrap{position:relative;padding-top:88px;padding-bottom:96px}
+.hero h1{font-size:clamp(56px,11vw,120px);letter-spacing:-1px}
+.hero .tag{font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(24px,4vw,36px);color:var(--yellow);margin:10px 0 18px}
+.hero p{max-width:520px;font-size:19px;margin:0 0 28px}
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:800;text-decoration:none;min-height:48px}
+.btn.yellow{background:var(--yellow);color:var(--ink)}
+.btn.yellow:hover{background:#FFD866;color:var(--ink)}
+.btn.outline{border:2px solid var(--white);color:var(--white);margin-left:8px}
+.btn.outline:hover{background:var(--white);color:var(--teal)}
+.btn.teal{background:var(--teal);color:var(--white)}
+.btn.teal:hover{background:var(--teal-dark);color:var(--white)}
+
+section{padding:80px 0}
+section h2{font-size:clamp(34px,5vw,48px);color:var(--teal);margin:8px 0 18px}
+
+/* problem */
+.problem{background:var(--cream)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:start}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.stat{background:var(--white);border:2px solid var(--ink);border-radius:18px;padding:20px}
+.stat b{display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--coral)}
+.stat span{display:block;font-weight:700;font-size:15px;line-height:1.4;margin-top:6px}
+.source{font-size:13px;color:var(--grey);margin-top:14px}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:28px}
+.step{background:#F6F8F8;border-radius:18px;padding:24px}
+.step svg{display:block;margin-bottom:12px}
+.step h3{font-size:24px;margin-bottom:6px}
+.step p{margin:0}
+.ask{margin-top:28px;background:var(--mist);border-radius:18px;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.ask p{margin:0;font-weight:700;font-size:18px;max-width:640px}
+
+/* different */
+.different{background:var(--teal);color:var(--white)}
+.different h2{color:var(--white)}
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:24px}
+.card{border-radius:18px;padding:24px}
+.card.them{background:var(--teal-dark)}
+.card.us{background:var(--yellow);color:var(--ink)}
+.card h3{font-size:26px;margin-bottom:8px}
+.card p{margin:0}
+
+/* why now */
+.now-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:24px}
+.now{border:2px solid var(--ink);border-radius:18px;padding:24px}
+.now b{display:block;font-family:'Fredoka',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--coral);margin-bottom:8px}
+.now p{margin:0}
+.made{margin-top:24px;background:var(--cream);border-radius:18px;padding:24px}
+.made p{margin:6px 0 0}
+
+/* roadmap */
+.roadmap{background:#F6F8F8}
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:24px;list-style:none;padding:0}
+.road li{border-radius:16px;padding:18px;border:2px solid var(--ink);background:var(--white)}
+.road li.done{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.road li.next{background:var(--yellow);border-color:var(--yellow)}
+.road strong{display:block;font-size:17px}
+.road span{font-size:15px}
+.vision{margin-top:40px;background:var(--teal);color:var(--white);border-radius:20px;padding:32px}
+.vision p{font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(24px,3.5vw,34px);line-height:1.25;margin:8px 0 0}
+
+/* contact */
+.contact{text-align:center}
+.contact h2{margin-bottom:10px}
+.contact p{max-width:560px;margin:0 auto 24px}
+
+footer{background:var(--ink);color:#D7DEE2;padding:32px 0;font-size:14px}
+footer a{color:var(--yellow)}footer a:hover{color:#FFD866}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+
+@media (max-width:600px){
+  .nav ul{display:none}
+  section{padding:60px 0}
+  .btn.outline{margin-left:0;margin-top:10px}
+  .hero .bubble2{display:none}
+  .hero .bubble1{width:240px;height:240px;right:-110px;top:-120px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="NoPoke home">
+      <svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="28" stroke="#0B5F5E" stroke-width="5"/><path d="M22 42 L38 26 M34 22 L42 30 M40 20 L44 24 M22 42 L18 46" stroke="#0B5F5E" stroke-width="5"/><path d="M14 14 L50 50" stroke="#D2462F" stroke-width="5"/></svg>
+      NoPoke
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#problem">The problem</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#different">Why NoPoke</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="bubble1" aria-hidden="true"></div>
+  <div class="bubble2" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>NoPoke</h1>
+    <div class="tag">Shots without the needle.</div>
+    <p>NoPoke uses a spring to push the vaccine through the skin as a super-thin jet stream, with no needle. No needle, no poke.</p>
+    <a class="btn yellow" href="#how">See how it works</a>
+    <a class="btn outline" href="#contact">Contact us</a>
+  </div>
+</section>
+
+<section class="problem" id="problem">
+  <div class="wrap grid2">
+    <div>
+      <div class="label">The problem</div>
+      <h2>Scared of shots? You're not alone.</h2>
+      <p>According to a study by Jennifer McLenon and Mary Rogers, about 20–50% of adolescents have a fear of needles. This is a major problem, as teens are missing out on crucial medicine they need to stay healthy.</p>
+      <p>So I came up with a solution. It is called NoPoke. Kids will find it fun to pronounce, and adults will know it easily.</p>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:12px">What my survey found</div>
+      <div class="stats">
+        <div class="stat"><b>~½</b><span>of the teens I surveyed admitted to fearing needles</span></div>
+        <div class="stat"><b>54 of 55</b><span>parents picked needle-free over the regular shot</span></div>
+        <div class="stat"><b>75%</b><span>were willing to pay for the needle-free vaccine</span></div>
+      </div>
+      <div class="source">Needle-fear statistic: McLenon &amp; Rogers. Survey: my own survey of teens and parents.</div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="label">How it works</div>
+    <h2>A spring and a jet stream</h2>
+    <div class="steps">
+      <div class="step">
+        <svg width="56" height="56" viewBox="0 0 48 48" fill="none" stroke="#0B5F5E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 42 V12 H38 V42 M6 42 H42"/><path d="M24 18 V30 M18 24 H30"/></svg>
+        <h3>1. Load it</h3>
+        <p>The hospital inserts the medicine. That's all they have to do.</p>
+      </div>
+      <div class="step">
+        <svg width="56" height="56" viewBox="0 0 48 48" fill="none" stroke="#0B5F5E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8 H36 M12 40 H36"/><path d="M16 8 L32 13 L16 18 L32 23 L16 28 L32 33 L16 38 L20 40"/></svg>
+        <h3>2. Spring</h3>
+        <p>A spring pushes the medicine out as a super-thin, super-fast jet stream.</p>
+      </div>
+      <div class="step">
+        <svg width="56" height="56" viewBox="0 0 48 48" fill="none" stroke="#0B5F5E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17 H22 L30 24 L22 31 H4 Z"/><path d="M34 24 H44"/><path d="M34 18 L38 16 M34 30 L38 32"/></svg>
+        <h3>3. Done</h3>
+        <p>The stream goes through the skin. No needle, no poke.</p>
+      </div>
+    </div>
+    <div class="ask">
+      <p>Want NoPoke? Just ask your doctor. Either you pay out of pocket, or your insurance pays. Expected price: about $10–15.</p>
+      <a class="btn teal" href="#contact">Ask a question</a>
+    </div>
+  </div>
+</section>
+
+<section class="different" id="different">
+  <div class="wrap">
+    <div class="label on-dark">Why NoPoke</div>
+    <h2>Families get to decide.</h2>
+    <div class="compare">
+      <div class="card them">
+        <h3>Other brands</h3>
+        <p>Brands like PharmaJet are marketed towards hospitals and are rarely available to the public. Most families have never heard of them.</p>
+      </div>
+      <div class="card us">
+        <h3>NoPoke</h3>
+        <p>I market towards parents and kids so they can ask their doctor for NoPoke. That makes families the decision-makers and hospitals the givers of the vaccines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="now">
+  <div class="wrap">
+    <div class="label">Why now</div>
+    <h2>The world is ready.</h2>
+    <div class="now-list">
+      <div class="now"><b>12.7%</b><p><strong>Economically:</strong> according to the National Law Review, the needle-less injector market is growing 12.7% a year!</p></div>
+      <div class="now"><b>No sharps</b><p><strong>Socially:</strong> families want shots that are less scary, and humanitarian groups want needle-free options because there are no used needles to throw away.</p></div>
+    </div>
+    <div class="made">
+      <div class="label">How it's made</div>
+      <p>NoPoke is made from medical-grade plastic, with the nozzles, springs, housing, and safety mechanisms made by local manufacturers and built to meet FDA safety rules. NoPoke is not FDA cleared yet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="roadmap" id="roadmap">
+  <div class="wrap">
+    <div class="label">What's next</div>
+    <h2>Road map</h2>
+    <ol class="road">
+      <li class="done"><strong>✓ Idea</strong><span>The NoPoke concept</span></li>
+      <li class="done"><strong>✓ Survey</strong><span>Teens and parents</span></li>
+      <li class="next"><strong>Next: Prototype</strong><span>Build the first NoPoke</span></li>
+      <li><strong>Test</strong><span>On model humans with running bloodstreams</span></li>
+      <li><strong>Launch</strong><span>Hospitals across Texas, then America, then the world</span></li>
+    </ol>
+    <div class="vision">
+      <div class="label on-dark">Our vision</div>
+      <p>A healthier world where no one skips a shot because they're scared.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2>Questions? Let's talk.</h2>
+    <p>Shyam Mandayam, Founder · Houston, Texas</p>
+    <a class="btn teal" href="mailto:shyammandayam@gmail.com?subject=NoPoke">shyammandayam@gmail.com</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 NoPoke · Shots without the needle.</div>
+    <div>NoPoke is a student business idea for AP Business with Personal Finance. It's still in development and not available yet.</div>
+  </div>
+</footer>
+
+</body>
+</html>
